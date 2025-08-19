@@ -39,7 +39,7 @@ export default function Training() {
         handleResult()
       }
     },
-    runAutomaticTime ? 90 : null
+    runAutomaticTime ? velocityStudyAutomatic * 1000 : null
   )
 
   useEffect(() => {
@@ -97,7 +97,9 @@ export default function Training() {
       const studiedWords = [...studiedHashWords, word.id]
       const wordsNotStudied = getWordsNotStudied()
       if (!wordsNotStudied?.length) {
-        handleNotWordsStudied(studiedWords)
+        navigate('/training', { replace: true })
+        setShowResult(false)
+        dispatch(setStudiedhashWords([]))
       } else {
         const nextWord = studyRandomMode ? getItemRandArray(wordsNotStudied) : getWordNext(wordsNotStudied, wordId)
         setShowResult(false)

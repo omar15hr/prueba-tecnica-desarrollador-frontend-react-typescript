@@ -3,6 +3,7 @@ import { createMemoryHistory } from 'history'
 import { newMockXhr } from 'mock-xmlhttprequest'
 import { vi } from 'vitest'
 import App from '../App'
+import { configureStore } from '@reduxjs/toolkit'
 
 export const JEST_TIMEOUT = 5000
 
@@ -48,3 +49,4 @@ export function ejecAllMocks() {
 export function delay(time: number) {
   return new Promise(resolve => setTimeout(resolve, time))
 }
+
